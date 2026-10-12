@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2563eb">
+  <title>Hava Durumu PWA</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>Hava Durumu</h1>
+      <div class="header-actions">
+        <button id="geo-btn" type="button">📍 Konum</button>
+        <button id="theme-btn" type="button" aria-label="Temayı değiştir">🌙</button>
+      </div>
+    </header>
+
+    <form id="search-form" class="search-box">
+      <input
+        type="text"
+        id="city-input"
+        placeholder="Şehir adı yazın (örn. Ankara)"
+        aria-label="Şehir adı"
+        required
+      >
+      <button type="submit" id="search-btn">Ara</button>
+    </form>
+
+    <div id="offline-banner" class="offline-banner hidden">
+      ⚠️ İnternet bağlantınız yok! Çevrim dışısınız.
+    </div>
+
+    <div id="error-msg" class="error-msg hidden" role="alert"></div>
+    <p id="loading-msg" class="loading-msg hidden">Hava durumu yükleniyor...</p>
+
+    <main id="weather-display" class="hidden">
+      <section class="current-weather">
+        <h2 id="location-name">-</h2>
+        <p class="update-time">
+          Son güncelleme: <span id="last-updated">-</span>
+        </p>
+
+        <div class="temp-box">
+          <span id="current-temp">-</span>°C
+        </div>
+
+        <p id="weather-condition" class="condition">-</p>
+
+        <div class="details">
+          <span>Nem: <strong id="current-humidity">-</strong>%</span>
+          <span>Rüzgâr: <strong id="current-wind">-</strong> km/sa</span>
+        </div>
+      </section>
+
+      <section class="forecast-section">
+        <h3>5 Günlük Tahmin</h3>
+        <div id="forecast-container" class="forecast-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
